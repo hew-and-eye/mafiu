@@ -88,3 +88,7 @@ In this example, information would get processed as follows:
 * The programmer will see the names of the state variables.
 
 This is (subjectively) a good information digestion process.
+
+## Demo
+
+Want to see a site that is completely vanilla except for some Mafiu components? Check [this](https://bernardo.lol/mafiu/index.html) out.
