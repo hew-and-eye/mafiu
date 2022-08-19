@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <title>Mafiu Example</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8Zz4KICA8cmVjdCB3aWR0aD0iNzUyIiBoZWlnaHQ9Ijc1MiIgZmlsbD0iI2ZmZiIvPgogIDxwYXRoIGQ9Im0yNjMuNzcgMjc2LjA5aDQyLjczNGMxLjY2MDItMTIuOTczIDcuMjkzLTI0LjgzNiAxNS44NzUtMzMuNDE0IDguNjUyMy04LjY1MjMgMjAuMTgtMTQuMDA4IDMzLjYzMy0xNC4wMDhoMzkuOTI2YzEzLjQ1NyAwIDI0Ljk4NCA1LjM1MTYgMzMuNjMzIDE0LjAwOCA4LjU4MiA4LjU4MiAxNC4yMTUgMjAuNDQ5IDE1Ljg3OSAzMy40MTRoNDIuNzczYzYuNTI3MyAwIDExLjg3MSA1LjM0MzggMTEuODcxIDExLjg3MXMtNS4zNDM4IDExLjg3MS0xMS44NzEgMTEuODcxaC0yMjQuNDZjLTYuNTI3MyAwLTExLjg3MS01LjM0MzgtMTEuODcxLTExLjg3MXM1LjM0MzgtMTEuODcxIDExLjg3MS0xMS44NzF6bTQ2LjU1MSAyNjEuMDJoMTMxLjM2YzIwLjgzNiAwIDM3Ljg4Ny0xNy4wNTEgMzcuODg3LTM3Ljg5MXYtMTc1LjY0aC0yMDcuMTN2MTc1LjY0YzAgMjAuODQgMTcuMDUxIDM3Ljg5MSAzNy44ODcgMzcuODkxem0xOC4xOTUtMTY5LjMzYzYuNTI3MyAwIDExLjg3MSA1LjM0MzggMTEuODcxIDExLjg3MXYxMDEuMzhjMCA2LjUyNzMtNS4zNDM4IDExLjg3MS0xMS44NzEgMTEuODcxLTYuNTI3MyAwLTExLjg3NS01LjM0MzgtMTEuODc1LTExLjg3MXYtMTAxLjM4YzAtNi41MjczIDUuMzQzOC0xMS44NzEgMTEuODc1LTExLjg3MXptOTQuOTY1IDBjNi41MzUyIDAgMTEuODc1IDUuMzQzOCAxMS44NzUgMTEuODcxdjEwMS4zOGMwIDYuNTI3My01LjM0MzggMTEuODcxLTExLjg3NSAxMS44NzEtNi41MjczIDAtMTEuODcxLTUuMzQzOC0xMS44NzEtMTEuODcxdi0xMDEuMzhjMC02LjUyNzMgNS4zNDM4LTExLjg3MSAxMS44NzEtMTEuODcxem0tNDcuNDg0IDBjNi41MjczIDAgMTEuODcxIDUuMzQzOCAxMS44NzEgMTEuODcxdjEwMS4zOGMwIDYuNTI3My01LjM0MzggMTEuODcxLTExLjg3MSAxMS44NzFzLTExLjg3MS01LjM0MzgtMTEuODcxLTExLjg3MXYtMTAxLjM4YzAtNi41MjczIDUuMzQzOC0xMS44NzEgMTEuODcxLTExLjg3MXptLTQ1LjU0Ny05MS42ODhoOTEuMDUxYy0xLjM2MzMtNi41NTA4LTQuMzg2Ny0xMi4zOTEtOC42NzE5LTE2LjY3Ni00LjM2MzMtNC4zNjMzLTEwLjE1Ni03LjA3MDMtMTYuODkxLTcuMDcwM2gtMzkuOTI2Yy02LjczNDQgMC0xMi41MjMgMi43MDMxLTE2Ljg5MSA3LjA3MDMtNC4yODUyIDQuMjg1Mi03LjMwNDcgMTAuMTI1LTguNjcxOSAxNi42NzZ6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KIDwvZz4KPC9zdmc+Cg==" type="image/x-icon">
+  <script type="module" src="./index.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Silkscreen&display=swap" rel="stylesheet">
+  <style>
+    body {
+      padding: 8px;
+      font-family: 'Inconsolata', monospace;
+      /* font-family: 'Silkscreen', cursive; */
+    }
+    button, input {
+      font-family: 'Inconsolata', monospace;
+    }
+    maf-parent,
+    maf-child {
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px 4px rgba(0,0,0,0.1);
+      padding: 18px;
+      box-sizing: border-box;
+    }
+    maf-parent input {
+      width: 100%;
+    }
+    maf-child {
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <maf-header></maf-header>
+  <maf-parent></maf-parent>
+</body>

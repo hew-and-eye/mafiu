@@ -1,0 +1,18 @@
+{
+  "name": "mafiu",
+  "version": "1.0.0",
+  "description": "A super minimal framework for people who like native Web Components but need a little more convenience. Sadly, given how many frameworks are out there already, My Awesome Framework Is Unnecessary.",
+  "main": "index.js",
+  "author": "Matthew Bernardo",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn compile; yarn compress",
+    "compress": "for f in dist/*; do uglifyjs -m -c -o \"$f\" -- \"$f\"; done",
+    "compile": "tsc -p ./src"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.7.4",
+    "uglify-js": "^3.17.0"
+  }
+}

@@ -1,0 +1,1 @@
+function getStateObject(a,t){const{data:e={},hooks:c={}}=t;return new Proxy(e,{get(t,e){return"addHook"===e?(t,e)=>{c[t]||(c[t]=[]),c[t].push(e)}:Reflect.get(t,e)},set(e,r,o){var t;return null!=(t=c[r])&&t.forEach(t=>t.call(a,o,e[r])),Reflect.set(e,r,o)}})}export{getStateObject};
