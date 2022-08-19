@@ -1,6 +1,6 @@
 {
   "name": "mafiu",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "A super minimal framework for people who like native Web Components but need a little more convenience. Sadly, given how many frameworks are out there already, My Awesome Framework Is Unnecessary.",
   "main": "index.js",
   "author": "Matthew Bernardo",
