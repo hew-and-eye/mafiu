@@ -23,22 +23,35 @@ export function registerMafiuComponent({ name, template, data = {}, hooks = {}, 
 
   // Generate a class that manages internal state and re-rendering
   const MafiuElementClass = class extends HTMLElement {
-    state: Record<string, any>
-    handlers: Record<string, Function>
-    dependencyTree: Dependency
+    state?: Record<string, any>
+    handlers?: Record<string, Function>
+    dependencyTree?: Dependency
     static get observedAttributes() {
       return data._stateVars.map((v: string) => v.toLowerCase());
     }
     constructor() {
       super();
+    }
+    connectedCallback() {
       this.innerHTML = template;
       this.addListeners();
       this.dependencyTree = this.parseDependencies();
       Object.assign(hooks, this.getRenderHooks({ data, hooks }))
       this.state = getStateObject(this, { data, hooks });
       this.handlers = handlers
+      // Update state variables based on attributes
+      this.state._stateVars.forEach((stateVariable: string) => {
+        if (this.hasAttribute(stateVariable)) {
+          if (this.state) {
+            this.state[stateVariable] = this.getAttribute(stateVariable);
+          }
+        }
+      });
     }
     attributeChangedCallback(name: string, oldValue: any, newValue: any) {
+      if (!this.state) {
+        return
+      }
       const variable = data._stateVars.find((v: string) => v.toLowerCase() === name)
       this.state[variable] = newValue;
     }
@@ -70,13 +83,15 @@ export function registerMafiuComponent({ name, template, data = {}, hooks = {}, 
       return Object.keys(data).reduce((acc: Dependency, prop) => {
         acc[prop] = hooks[prop] || []
         acc[prop].push((newVal: any) => {
-          this.dependencyTree[prop]?.forEach(({ el, attribute, innerText }) => {
-            if (attribute) {
-              el.setAttribute(attribute, newVal)
-            } else {
-              el.innerText = newVal
-            }
-          })
+          if (this.dependencyTree) {
+            this.dependencyTree[prop]?.forEach(({ el, attribute, innerText }) => {
+              if (attribute) {
+                el.setAttribute(attribute, newVal)
+              } else {
+                el.innerText = newVal
+              }
+            })
+          }
         })
         return acc
       }, {})
@@ -97,17 +112,9 @@ export function registerMafiuComponent({ name, template, data = {}, hooks = {}, 
         const [handlerName, event] = el.getAttribute("mhandle").split(":");
         el.addEventListener(event, (e) => {
           // @ts-ignore
-          this.handlers[handlerName].call(this, event)
+          this.handlers[handlerName].call(e.target || this, e)
           e.stopImmediatePropagation()
         });
-      });
-    }
-    onConnectedCallback() {
-      // Update state variables based on attributes
-      this.state._stateVars.forEach((stateVariable: string) => {
-        if (this.hasAttribute(stateVariable)) {
-          this.state[stateVariable] = this.getAttribute(stateVariable);
-        }
       });
     }
   };
