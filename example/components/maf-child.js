@@ -25,7 +25,8 @@ registerMafiuComponent({
     ]
   },
   handlers: {
-    countHandler() {
+    countHandler(event) {
+      console.log("Got a click event", event)
       this.state.count++
     }
   }

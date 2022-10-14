@@ -112,7 +112,7 @@ export function registerMafiuComponent({ name, template, data = {}, hooks = {}, 
         const [handlerName, event] = el.getAttribute("mhandle").split(":");
         el.addEventListener(event, (e) => {
           // @ts-ignore
-          this.handlers[handlerName].call(e.target || this, e)
+          this.handlers[handlerName].call(this, e)
           e.stopImmediatePropagation()
         });
       });
