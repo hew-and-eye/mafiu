@@ -36,8 +36,8 @@ export function registerMafiuComponent({ name, template, data = {}, hooks = {}, 
       this.innerHTML = template;
       this.addListeners();
       this.dependencyTree = this.parseDependencies();
-      Object.assign(hooks, this.getRenderHooks({ data, hooks }))
-      this.state = getStateObject(this, { data, hooks });
+      const _hooks = { ...hooks, ...this.getRenderHooks({ data, hooks })}
+      this.state = getStateObject(this, { data, hooks: _hooks });
       this.handlers = handlers
       // Update state variables based on attributes
       this.state._stateVars.forEach((stateVariable: string) => {
